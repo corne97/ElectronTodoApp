@@ -1,4 +1,4 @@
-const {ipcRenderer} = require('electron');
+const {ipcRenderer, Notification} = require('electron');
 const fs = require("fs");
 
 // Add a click event listener to the button
@@ -16,16 +16,15 @@ openBtn.addEventListener('click',function(event) {
   });
 
 
-  
    // Set up an IPC listiner to save input to textfile
-   ipcMain.on('save-input',() =>
+   ipcRenderer.on('save-input',() =>
    {
        saveData();
    });
 
 
 function saveData()
-{
+{   // get text from input field and save in txt file
     const textInput= document.getElementById('txt').value;
     fs.writeFile('./notes/test.txt',textInput, (err) =>{
         if (err) {
@@ -33,5 +32,6 @@ function saveData()
             return;
         }
         console.log("text has been saved to textfile.txt")
+
     })
 }
