@@ -1,5 +1,8 @@
+
 body {
     background-color:lightgray ;
+    -webkit-app-region: drag;
+    
 }
 
 h1 {
@@ -12,6 +15,7 @@ h1 {
 }
 
 button[id=openNewWindowButton] {
+    -webkit-app-region: no-drag;
     margin-right: 5%;
     padding: 10px 18px;
     font-size: 12px;
@@ -32,6 +36,7 @@ button[id=openNewWindowButton] {
 }
 
 .input::placeholder{
+    -webkit-app-region: no-drag;
     font-weight: bol;
     font-family: sans-serif;
     opacity: 0.5;
@@ -39,8 +44,17 @@ button[id=openNewWindowButton] {
    
 }
 
+button[id=close] {
+-webkit-app-region: no-drag;
+background-color: #ff5f56;
+border-radius: 12px;
+padding: 5px 7px;
+border: 0;
+}
+
 
 button[id=submit] {
+    -webkit-app-region: no-drag;
     padding: 15px 25px;
     font-size: 12px;
     text-align: center;
@@ -56,12 +70,14 @@ button[id=submit] {
   }
 
 input[type=text]{
+    -webkit-app-region: no-drag;
     padding:12px 20px;
-    width:40%;   
+    width:50%;   
 }
 
 input[type=text]:focus {
-    background-color: lightblue;
+    -webkit-app-region: no-drag;
+    background-color: rgb(228, 247, 255);
   }
 
 .maincontainer{

@@ -20,27 +20,36 @@ app.on('ready', () =>
    
 });
 
-const NOTIFICATION_TITLE = 'Basic Notification'
-const NOTIFICATION_BODY = 'Notification from the Main process'
 
-function showNotification(){
-    new Notification({title: NOTIFICATION_TITLE, body:NOTIFICATION_BODY}).show()
-}
+// not working yet....
+
+// const NOTIFICATION_TITLE = 'Basic Notification'
+// const NOTIFICATION_BODY = 'Notification from the Main process'
+
+// function showNotification(){
+//     new Notification({title: NOTIFICATION_TITLE, body:NOTIFICATION_BODY}).show()
+// }
 
 
-app.whenReady().then(createWindow).then(showNotification)
+// app.whenReady().then(createWindow).then(showNotification)
 
 
 
 function createWindow()
 {
     const window = new BrowserWindow({
-        width: 920,
-        height: 768,
+        maxWidth:520,
+        minWidth:220,
+        maxHeight:640,
+        minHeight:440,
+        transparent:true,
+        frame:false,
+
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
-            frame:true,
+           
+            
         },
     });
 
@@ -64,6 +73,8 @@ function createMainWindow()
 
     // when the window closes we wanna set the variable back to null
     mainWindow.on("close", () => { mainWindow = null; })
+
+
 }
 
 
@@ -83,3 +94,4 @@ function createOtherWindow()
     // when the window closes we wanna set the variable back to null
     otherWindow.on("close", () => { otherWindow = null; })
 }
+
