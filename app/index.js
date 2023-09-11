@@ -14,7 +14,7 @@ const savebtn = document.getElementById('submit')
 savebtn.addEventListener('click', function (event)
 {
   saveData();
-
+  
 });
 
 
@@ -26,48 +26,54 @@ closebtn.addEventListener('click', function (event)
 
 ipcRenderer.on('close-window', () =>
 {
-    closeWindow()
+  closeWindow()
 });
 
 
-function closeWindow(){
+function closeWindow()
+{
   window.close()
 }
 
-// const maxbtn = document.getElementById('maximize')
-// maxbtn.addEventListener('click', function (event)
-// {
-//   ipcRenderer.send('maximize-window')
-// });
 
-// ipcRenderer.on('maximize-window', () =>
-// {
-//     maximizeWindow()
-// });
+const textInput = document.getElementById('txt');
+const listarr = [];
 
-
-// function maximizeWindow(){
-//   if(mainWindow.isMaximized()) {
-//     mainWindow.isMaximized();
-//   } else {
-//     mainWindow.maximize();
-//   }
-// }
-
-
+// Get input data and push it to an array and stringify and write to file
 function saveData()
-{   // get text from input field and save in txt file
-  const textInput = document.getElementById('txt').value;
-  fs.writeFile('./notes/test.txt', textInput, (err) =>
+{
+  listarr.push(textInput.value);
+  const result = JSON.stringify(listarr);
+  fs.writeFile('./notes/test.txt', result, "utf-8", (err) =>
   {
     if (err)
     {
       console.log(err);
       return;
     }
-    console.log("text has been saved to textfile.txt")
+    console.log("text has been saved to test.txt")
+    console.log(listarr)
 
-  })
+    // Render the list after data is saved to the file
+    renderList();
+  }
+  )
 }
+
+// Display listarr in list in html
+function renderList()
+{
+  let list = document.getElementById('list');
+
+  listarr.forEach((item) =>
+  {
+    let li = document.createElement("li");
+    li.innerText = item;
+    list.appendChild(li);
+  });
+}
+
+
+
 
 

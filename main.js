@@ -42,18 +42,20 @@ function createWindow()
         minWidth:220,
         maxHeight:640,
         minHeight:440,
+        width:350,
+        height:520,
         transparent:true,
         frame:false,
 
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
-           
-            
+                
         },
     });
 
     window.loadFile('./app/index.html');
+    window.webContents.openDevTools({mode:"detach"})
 
     return window;
 }
