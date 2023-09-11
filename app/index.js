@@ -54,16 +54,17 @@ function saveData()
     console.log("text has been saved to test.txt")
     console.log(listarr)
 
-    // Render the list after data is saved to the file
     renderList();
   }
   )
 }
 
-// Display listarr in list in html
+// Render the list after data is saved to the file
 function renderList()
 {
   let list = document.getElementById('list');
+
+  document.getElementById('list').innerHTML = "";
 
   listarr.forEach((item) =>
   {
