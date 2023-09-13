@@ -64,15 +64,13 @@ function saveData()
 }
 
 
-
-
 function deleteData(li) 
 {
-
+  
   // get the textContext from de html list element
   const txt = li.textContent;
   // find the index of the txt in te arrlist
-  const index = arrlist.indexOf(txt);
+  const index = listarr.indexOf(txt);
 
   // if the index === -1 it means that nothing is found
   if (index === -1)
@@ -84,7 +82,7 @@ function deleteData(li)
   }
 
   // if the index !== -1 we can remove it
-  arrlist.splice(index, 1); // remove from arrlist at index, but only remove 1
+  listarr.splice(index, 1); // remove from arrlist at index, but only remove 1
 
   // and as last, we remove the html list element
   li.remove(li);

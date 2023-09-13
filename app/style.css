@@ -42,6 +42,7 @@ button[id=openNewWindowButton] {
 
 
 button[id=delete] {
+    -webkit-app-region: no-drag;
     background-color: #ff5f56;
     border: none;
     border-radius: 5px;
